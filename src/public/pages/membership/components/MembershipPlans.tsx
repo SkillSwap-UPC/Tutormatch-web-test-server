@@ -129,12 +129,12 @@ export default function MembershipPlans() {
       <p className="text-white text-lg mb-10 text-center max-w-2xl">
         Ofrece tu conocimiento y ayuda a otros a alcanzar el éxito académico, ¡comienza a ofrecer tus tutorías hoy!
       </p>
-      
+
       <div className="flex flex-col lg:flex-row gap-6 justify-center items-stretch w-full max-w-6xl">
         {plans.map((plan, idx) => {
           const colors = getPlanColors(idx);
           const isPopular = idx === 1; // STANDARD plan como popular
-          
+
           return (
             <div
               key={plan.name}
@@ -180,9 +180,8 @@ export default function MembershipPlans() {
 
               {/* CTA Button */}
               <button
-                className={`w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl ${
-                  isPopular ? 'ring-2 ring-purple-400 ring-opacity-50' : ''
-                }`}
+                className={`w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl ${isPopular ? 'ring-2 ring-purple-400 ring-opacity-50' : ''
+                  }`}
                 onClick={() => handleBuy(idx)}
               >
                 <span className="text-lg">Elegir Plan {idx === 0 ? 'Básico' : idx === 1 ? 'Estándar' : 'Premium'}</span>
@@ -235,6 +234,12 @@ export default function MembershipPlans() {
               </button>
             </div>
 
+            <div className="px-6 pt-4 pb-0">
+              <div className="bg-yellow-900/20 border border-yellow-600/40 rounded-lg p-3 mb-4 text-yellow-200 text-sm text-center">
+                <strong>TutorMatch</strong> <span className="font-bold text-red-400">NO gestiona los pagos de manera interna.</span> Realiza tu pago solo a través de los métodos y cuentas oficiales mostrados aquí. No uses intermediarios ni terceros para realizar tu pago.              
+                </div>
+            </div>
+
             {/* Content */}
             <div className="p-6">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -260,11 +265,10 @@ export default function MembershipPlans() {
                     </h4>
                     <div className="grid grid-cols-2 gap-3">
                       <button
-                        className={`relative p-4 rounded-xl border-2 transition-all duration-200 ${
-                          tab === 'yape' 
-                            ? 'border-red-500 bg-red-900/30 shadow-lg' 
-                            : 'border-white/20 bg-white/5 hover:bg-white/10'
-                        }`}
+                        className={`relative p-4 rounded-xl border-2 transition-all duration-200 ${tab === 'yape'
+                          ? 'border-red-500 bg-red-900/30 shadow-lg'
+                          : 'border-white/20 bg-white/5 hover:bg-white/10'
+                          }`}
                         onClick={() => setTab('yape')}
                       >
                         {tab === 'yape' && (
@@ -283,11 +287,10 @@ export default function MembershipPlans() {
                       </button>
 
                       <button
-                        className={`relative p-4 rounded-xl border-2 transition-all duration-200 ${
-                          tab === 'plin' 
-                            ? 'border-red-500 bg-red-900/30 shadow-lg' 
-                            : 'border-white/20 bg-white/5 hover:bg-white/10'
-                        }`}
+                        className={`relative p-4 rounded-xl border-2 transition-all duration-200 ${tab === 'plin'
+                          ? 'border-red-500 bg-red-900/30 shadow-lg'
+                          : 'border-white/20 bg-white/5 hover:bg-white/10'
+                          }`}
                         onClick={() => setTab('plin')}
                       >
                         {tab === 'plin' && (
@@ -323,11 +326,10 @@ export default function MembershipPlans() {
                       />
                       <label
                         htmlFor="file-upload"
-                        className={`flex flex-col items-center justify-center w-full h-24 border-2 border-dashed rounded-xl cursor-pointer transition-all ${
-                          file 
-                            ? 'border-green-500 bg-green-900/20' 
-                            : 'border-white/30 bg-white/5 hover:bg-white/10'
-                        }`}
+                        className={`flex flex-col items-center justify-center w-full h-24 border-2 border-dashed rounded-xl cursor-pointer transition-all ${file
+                          ? 'border-green-500 bg-green-900/20'
+                          : 'border-white/30 bg-white/5 hover:bg-white/10'
+                          }`}
                       >
                         {file ? (
                           <div className="text-center">
@@ -419,11 +421,10 @@ export default function MembershipPlans() {
             {/* Footer ÚNICO */}
             <div className="border-t border-white/20 p-6">
               <button
-                className={`w-full py-3 px-6 rounded-xl font-bold text-white transition-all duration-300 ${
-                  !file || loading
-                    ? 'bg-gray-600 cursor-not-allowed opacity-50'
-                    : 'bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 shadow-lg hover:shadow-xl transform hover:scale-[1.02]'
-                }`}
+                className={`w-full py-3 px-6 rounded-xl font-bold text-white transition-all duration-300 ${!file || loading
+                  ? 'bg-gray-600 cursor-not-allowed opacity-50'
+                  : 'bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 shadow-lg hover:shadow-xl transform hover:scale-[1.02]'
+                  }`}
                 disabled={!file || loading}
                 onClick={handleSubmit}
               >
